@@ -8,7 +8,7 @@ const Users = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/all-users');
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/all-users`);
                 const data = await response.json();
                 setUsers(data.users.sort((a,b)=>b.totalPoints-a.totalPoints) || []);       
                 // setUsers(users.sort((a,b)=>b.totalPoints-a.totalPoints));
@@ -26,7 +26,7 @@ const Users = () => {
                 return;
             }
             e.preventDefault();
-            fetch('http://localhost:5000/api/add-user', {
+            fetch(`${process.env.REACT_APP_API_URL}/api/add-user`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const Users = () => {
             point:Points + random_number,
             date:new Date()
         }
-        fetch('http://localhost:5000/api/claim-points', {
+        fetch(`${process.env.REACT_APP_API_URL}/api/claim-points`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

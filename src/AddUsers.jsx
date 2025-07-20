@@ -7,7 +7,7 @@ const AddUsers = () => {
             return;
         }
         e.preventDefault();
-        fetch('http://localhost:5000/api/add-user', {
+        fetch(`${process.env.REACT_APP_API_URL}/api/add-user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
