@@ -49,6 +49,7 @@ const Users = () => {
         const data = { 
             userId,
             point:Points + random_number,
+            currentPoint:random_number,
             date:new Date()
         }
         fetch(`${process.env.REACT_APP_API_URL}/api/claim-points`, {
